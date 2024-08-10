@@ -1,6 +1,7 @@
 fn main() {
     // demo_integers();
-    demo_floats();
+    // demo_floats();
+    demo_other_simple_types();
 }
 
 fn demo_integers() {
@@ -57,4 +58,26 @@ fn demo_floats() {
 
     println!("\nElectron charge {0}, {0:e}, {0:.4e}", f3);
     println!("\nSpeed of light {0}, {0:e}, {0:.4e}", f4);
+}
+
+fn demo_other_simple_types() {
+    let is_human: bool = true;
+    let is_flat_earther = false;
+
+    println!(
+        "\nIs human? {}, is flat_earther? {}",
+        is_human, is_flat_earther
+    );
+
+    let res1: bool = is_human && is_flat_earther;
+    let res2: bool = is_human || is_flat_earther;
+    let res3: bool = !(is_human || is_flat_earther);
+    println!("res1: {}, res2: {}, res3 {}", res1, res2, res3);
+
+    let first_letter_of_the_alphabet = 'a';
+    let my_emoji = '🥲';
+    println!(
+        "\nFirst letter of the English Alphabet is '{}', and my fave emoji is '{}'",
+        first_letter_of_the_alphabet, my_emoji
+    );
 }
