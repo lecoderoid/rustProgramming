@@ -1,8 +1,39 @@
 fn main() {
     // demo_if();
-    demo_match();
+    // demo_match();
+    demo_loops();
 }
 
+fn demo_loops() {
+    println!("\nUsing a while loop");
+    let mut i = 0;
+    while i < 10 {
+        println!("{}", i);
+        i += 1;
+    }
+
+    println!("\nUsing a for loop over an array");
+    let arr = [1, 2, 3, 4, 5, 63, 6];
+    for elem in arr {
+        println!("{}", elem);
+    }
+
+    println!("\nusing a for loop over a range (exclusive upper limit)");
+    for i in 0..10 {
+        println!("{}", i);
+    }
+
+    println!("\nusing a for loop over a range (inclusive upper limit)");
+    for i in 0..=10 {
+        println!("{}", i);
+    }
+
+    println!("\nUsing an infinite loop");
+    loop {
+        println!("this loop will go on forever. Hit ctrl-c to end");
+        std::thread::sleep(std::time::Duration::from_secs(1));
+    }
+}
 fn demo_if() {
     let age = 58;
     if age > 50 {
