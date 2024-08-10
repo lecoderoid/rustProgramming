@@ -1,5 +1,6 @@
 fn main() {
-    demo_integers();
+    // demo_integers();
+    demo_floats();
 }
 
 fn demo_integers() {
@@ -24,4 +25,36 @@ fn demo_integers() {
         "isize is {} bytes on my machine",
         std::mem::size_of::<isize>()
     );
+}
+
+fn demo_floats() {
+    //rust has single-precicision and double-precicision floats
+    let f1: f32 = 1.23456;
+    let f2: f64 = 9.87654;
+
+    println!("\nFloats are {} {}", f1, f2);
+    println!("\nFloats to 2dp are {:.2} {:.2}", f1, f2);
+    println!(
+        "\nfloats field width 10 l-aligned filled with space are ***{:<10.2}*** and ***{:<10.2}***",
+        f1, f2
+    );
+    println!(
+        "\nfloats field width 10 R-aligned filled with space are ***{:>10.2}*** and ***{:>10.2}***",
+        f1, f2
+    );
+    println!(
+        "\nFloats field width 10 L-aligned filled with tilde are ***{:~<10.2}*** and ***{:~<10.2}***",
+        f1, f2
+    );
+    println!(
+        "\nFloats field width 10 R-aligned filled with tilde are ***{:~>10.2}*** and ***{:~>10.2}***",
+        f1, f2
+    );
+
+    // scientific notation with floats
+    let f3: f32 = 1.60217663e-16;
+    let f4: f64 = 2.99792458e8;
+
+    println!("\nElectron charge {0}, {0:e}, {0:.4e}", f3);
+    println!("\nSpeed of light {0}, {0:e}, {0:.4e}", f4);
 }
