@@ -1,7 +1,8 @@
 fn main() {
     // demo_integers();
     // demo_floats();
-    demo_other_simple_types();
+    // demo_other_simple_types();
+    demo_additional_techniques();
 }
 
 fn demo_integers() {
@@ -80,4 +81,39 @@ fn demo_other_simple_types() {
         "\nFirst letter of the English Alphabet is '{}', and my fave emoji is '{}'",
         first_letter_of_the_alphabet, my_emoji
     );
+}
+
+fn demo_additional_techniques() {
+    // type inference in rust
+    let a = -12345;
+    let b = 3.14;
+    let c = 'X';
+    println!("\na is {}, b is {}, c is {}", a, b, c);
+
+    //variables are immutable by default
+    let d = 1;
+    // d = 2 -> the compiler will throw an error
+    println!("\nd is {}", d);
+
+    // you must use the "mut" qualifier to make a var mutable
+    let mut e = 0;
+    println!("\ne originally is {}", e);
+    e += 1;
+    println!("\ne afterwards is {}", e);
+
+    // you can cast using the "as" keyword
+    let g = 3.99;
+    let h = g as i32;
+    println!("\ng is {}, h is {}", g, h);
+
+    //rust lets you redeclare a var in the current scope. This is called shadowing
+    let num = "12345";
+    println!("\nnum as a string is {}", num);
+    let num = 12345;
+    println!("\nnum as a number is {}", num + 1000);
+
+    //you can define a compile-time constants. You must be explicit
+    const SECONDS_IN_HOUR: i32 = 3_600;
+    const SECONDS_IN_DAY: i32 = 24 * SECONDS_IN_HOUR;
+    println!("\nThere are {} seconds in a day", SECONDS_IN_DAY);
 }
