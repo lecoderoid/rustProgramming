@@ -7,7 +7,8 @@ use mytypes_for_demo_purposes::{Color, HouseLocation};
 
 fn main() {
     // demo_simple_enums();
-    demo_with_data();
+    // demo_with_data();
+    demo_using_option_enum();
 }
 
 fn demo_simple_enums() {
@@ -41,4 +42,29 @@ fn demo_with_data() {
 
     let size = std::mem::size_of::<HouseLocation>();
     println!("Btw the size of HouseLocation is {} bytes", size);
+}
+
+fn demo_using_option_enum() {
+    println!("\nDemo using the Option<T> enum");
+
+    let sec: Option<u32>;
+
+    // sec = sec_of_day(23, 59, 59);
+    sec = sec_of_day(2233, 59, 59);
+
+    match sec {
+        Some(s) => println!("Second of day: {}", s),
+        None => println!("Second of day: no value available"),
+    }
+
+    println!("Unwrapped sec: {}", sec.unwrap_or(0));
+}
+
+fn sec_of_day(h: u32, m: u32, s: u32) -> Option<u32> {
+    if h <= 24 && m <= 59 && s <= 59 {
+        let secs = h * 3600 + m * 60 + s;
+        return Option::Some(secs);
+    } else {
+        return Option::None;
+    }
 }
