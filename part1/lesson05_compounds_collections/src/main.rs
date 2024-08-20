@@ -3,7 +3,8 @@ use std::collections::HashMap;
 fn main() {
     // demo_arrays();
     // demo_array_techniques();
-    demo_tuples();
+    // demo_tuples();
+    demo_vectors();
 }
 
 fn demo_arrays() {
@@ -65,4 +66,41 @@ fn demo_tuples() {
         "t4 is {:?}, elements are {}, {}, {}, {}",
         t4, t4.0, t4.1, t4.2, t4.3
     );
+}
+
+fn demo_vectors() {
+    println!("\nUsing Vectors");
+
+    // you can create a vector object using either of the following syntaxes
+    let mut _v1: Vec<i32> = Vec::new();
+    let mut _v2 = Vec::<i32>::new();
+
+    //you can creat a vector object and initialize it via the vec! macro
+    let mut v3 = vec![100, 101, 102];
+
+    let item = v3[0];
+    println!("Value: {}", item);
+
+    //index into a vector safely, returns an Option<T>
+    let opt = v3.get(0);
+    match opt {
+        Some(v) => println!("Value: {}", v),
+        None => println!("No value"),
+    }
+
+    //add and remove items in a vector
+    v3.push(103);
+    v3.push(104);
+    v3.push(105);
+    v3.pop();
+    v3.insert(0, 99);
+    v3[1] = 43;
+
+    // iterate over the items
+    for item in &v3 {
+        println!("{} ", item);
+    }
+
+    //display the vector all at once
+    println!("\nv3 is {:?}", v3);
 }
