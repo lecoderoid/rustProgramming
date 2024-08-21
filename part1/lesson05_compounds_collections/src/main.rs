@@ -4,7 +4,8 @@ fn main() {
     // demo_arrays();
     // demo_array_techniques();
     // demo_tuples();
-    demo_vectors();
+    // demo_vectors();
+    demo_maps();
 }
 
 fn demo_arrays() {
@@ -103,4 +104,41 @@ fn demo_vectors() {
 
     //display the vector all at once
     println!("\nv3 is {:?}", v3);
+}
+
+fn demo_maps() {
+    println!("\nUsing Maps");
+
+    //you can create a map object using either of the ff syntaxes
+    let mut m: HashMap<String, i32> = HashMap::new();
+    let mut _m2 = HashMap::<String, i32>::new();
+
+    //insert items
+    m.insert(String::from("UK"), 44);
+    m.insert(String::from("NO"), 47);
+    m.insert(String::from("SG"), 65);
+
+    //insert item only if key is missing
+    m.entry(String::from("SA")).or_insert(27);
+
+    //look-up key (will panic ifkeyis missing)
+    let val = m["UK"];
+    println!("Value for key 'UK': {}", val);
+
+    //look up a key safely, returns an Option<V>
+    let opt = m.get("UK");
+
+    match opt {
+        Some(v) => println!("Value for key 'UK': {}", v),
+        None => println!("No value"),
+    }
+
+    println!("Entries in m:");
+
+    for entry in &m {
+        println!(" {:?}", entry);
+    }
+
+    //display a map all at once via the debug formatter
+    println!("m is {:?}", m);
 }
